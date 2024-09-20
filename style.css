@@ -53,3 +53,42 @@ textarea {
   border: none;
   outline: none;
 }
+
+/* * ----- Utility Classes ----- */
+
+.container {
+  max-width: 1200px;
+  padding: 12vw;
+}
+
+/* * ----- Variables ----- */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --primary-color: #ff6b6b;
+  --secondary-color: #794afa;
+  --secondary-dark-color: #4536a0;
+  --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* * ----- Main Styles ----- */
+
+/* * ----- Media Queries ----- */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 9vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 6vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 3vw;
+  }
+}
