@@ -77,6 +77,10 @@ a {
   color: var(--primary-color);
 }
 
+section {
+  padding-top: 6rem;
+}
+
 /* Button */
 .primary-btn {
   padding: 0.5rem 1rem;
@@ -175,7 +179,7 @@ a {
 }
 
 /* * ----- Hero ----- */
-#hero {
+.hero {
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -185,27 +189,22 @@ a {
   gap: 2rem;
 }
 
-#hero .section-heading {
+.hero .section-heading {
   color: var(--bg-color);
   margin-bottom: 0;
 }
 
-#hero .section-heading span {
+.hero .section-heading span {
   display: block;
 }
 
-#hero .primary-btn {
+.hero .primary-btn {
   color: var(--bg-color);
   font-size: 1.5rem;
   padding: 1rem 2rem;
 }
 
 /* * ----- Services ----- */
-#services {
-  background: var(--bg-color);
-  padding-top: 6rem;
-}
-
 .services-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
@@ -239,10 +238,6 @@ a {
 }
 
 /* * ----- Projects ----- */
-#projects {
-  padding-top: 6rem;
-}
-
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -283,10 +278,6 @@ a {
 }
 
 /* * ----- About ----- */
-#about {
-  padding-top: 6rem;
-}
-
 #about .section-heading.outer {
   display: none;
 }
@@ -435,7 +426,7 @@ a {
     flex-direction: column;
   }
 
-  #about .section-heading.outer{
+  #about .section-heading.outer {
     display: block;
   }
 
@@ -464,7 +455,7 @@ a {
     height: 70vh;
   }
 
-  #hero {
+  .hero {
     align-items: start;
     text-align: start;
     gap: 2rem;
