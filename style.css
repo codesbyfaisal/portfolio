@@ -63,6 +63,20 @@ a {
   margin: 0 auto;
 }
 
+.section-heading {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--bg-color);
+  letter-spacing: 2px;
+  max-width: 40rem;
+}
+
+.section-heading span {
+  color: var(--primary-color);
+  font-size: 4.1rem;
+  margin: 0.5rem 0;
+}
+
 /* * ----- Variables ----- */
 :root {
   --bg-color: #f0f4f8;
@@ -75,6 +89,13 @@ a {
 }
 
 /* * ----- Main Styles ----- */
+
+/* * ----- Header Section ----- */
+#header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url("/img/hero.jpg") no-repeat center center/cover;
+  height: 100vh;
+}
 
 /* * ----- Navbar ----- */
 .navbar {
@@ -113,12 +134,6 @@ a {
 }
 
 /* * ----- Hero ----- */
-#header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-    url("/img/hero.jpg") no-repeat center center/cover;
-  height: 100vh;
-}
-
 #hero {
   height: 90%;
   display: flex;
@@ -129,19 +144,8 @@ a {
   gap: 2rem;
 }
 
-.hero-heading {
-  font-size: 4rem;
-  font-weight: 500;
-  color: var(--bg-color);
-  letter-spacing: 2px;
-  max-width: 40rem;
-}
-
-.hero-heading span {
-  color: var(--primary-color);
+#hero .section-heading span {
   display: block;
-  font-size: 4.1rem;
-  margin: 0.5rem 0;
 }
 
 .hero-btn {
