@@ -41,6 +41,7 @@ h6 {
 
 p {
   line-height: 1.5;
+  font-size: 1.1rem;
 }
 
 input,
@@ -66,9 +67,10 @@ a {
 .section-heading {
   font-size: 4rem;
   font-weight: 500;
-  color: var(--bg-color);
+  color: var(--text-color);
   letter-spacing: 2px;
   max-width: 40rem;
+  margin-bottom: 2rem;
 }
 
 .section-heading span {
@@ -144,6 +146,11 @@ a {
   gap: 2rem;
 }
 
+#hero .section-heading {
+  color: var(--bg-color);
+  margin-bottom: 0;
+}
+
 #hero .section-heading span {
   display: block;
 }
@@ -182,6 +189,47 @@ a {
 .hero-btn:hover:after {
   width: 100%;
 }
+
+/* * ----- Services ----- */
+#services {
+  background: var(--bg-color);
+  padding: 8rem 0;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.service:hover {
+  box-shadow: none;
+}
+
+.service i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.service h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* * ----- Footer ----- */
 
 /* * ----- Media Queries ----- */
 @media screen and (max-width: 1024px) {
