@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 
+/* * ----- Variables ----- */
+:root {
+  --bg-color: #f0f4f8;
+  --text-color: #1a202c;
+  --primary-color: #1e90ff;
+  --secondary-color: #ff7f50;
+  --footer-text-color: #fdfdfdd2;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  --transition: all 0.25s ease-in-out;
+}
+
 /* * ----- Reset CSS ----- */
 *,
 *::before,
@@ -122,20 +133,11 @@ section {
   font-size: 1.2rem;
 }
 
-/* * ----- Variables ----- */
-:root {
-  --bg-color: #f0f4f8;
-  --text-color: #1a202c;
-  --primary-color: #1e90ff;
-  --secondary-color: #ff7f50;
-  --secondary-dark-color: #c85030;
-  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-  --transition: all 0.25s ease-in-out;
-}
-
 /* * ----- Main Styles ----- */
-
 /* * ----- Header Section ----- */
+body {
+  position: relative;
+}
 #header {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url("/img/hero.jpg") no-repeat center center/cover;
@@ -148,14 +150,13 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  position: relative;
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--bg-color);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 
   & span {
     color: var(--primary-color);
@@ -171,6 +172,9 @@ section {
 .navlinks li {
   font-size: 1.1rem;
   font-weight: 500;
+}
+.navlinks li:hover {
+  color: var(--primary-color);
 }
 
 .navbar-button {
@@ -319,7 +323,63 @@ section {
   display: block;
 }
 
+/* * ----- Contact ----- */
+#contact .section-heading.outer {
+  display: none;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.contact-card:hover {
+  box-shadow: none;
+}
+
+.contact-card i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.contact-card p {
+  font-size: 1.2rem;
+}
+
 /* * ----- Footer ----- */
+footer {
+  margin-top: 6rem;
+  text-align: center;
+  padding: 2rem 0 0.5rem;
+  background-color: var(--text-color);
+  color: var(--footer-text-color);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
 
 /* * ----- Media Queries ----- */
 @media screen and (max-width: 1024px) {
@@ -382,10 +442,6 @@ section {
     margin-bottom: 1.5rem;
   }
 
-  .navlinks li:hover {
-    color: var(--primary-color);
-  }
-
   .navbar-button {
     display: block;
     color: var(--bg-color);
@@ -421,6 +477,13 @@ section {
 }
 
 @media screen and (max-width: 700px) {
+  .services-container {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+  .service {
+    padding: 1rem;
+  }
   .about-container {
     display: flex;
     flex-direction: column;
