@@ -13,6 +13,7 @@ body {
   font-family: "League Spartan", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 img {
@@ -74,6 +75,8 @@ a {
 }
 
 /* * ----- Main Styles ----- */
+
+/* * ----- Navbar ----- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -85,6 +88,8 @@ a {
 .navbar .logo {
   font-size: 1.8rem;
   font-weight: 500;
+  color: var(--bg-color);
+  letter-spacing: 1px;
 
   & span {
     color: var(--primary-color);
@@ -94,6 +99,7 @@ a {
 .navlinks {
   display: flex;
   gap: 2rem;
+  color: var(--bg-color);
 }
 
 .navlinks li {
@@ -104,6 +110,73 @@ a {
 .navbar-button {
   font-size: 1.5rem;
   display: none;
+}
+
+/* * ----- Hero ----- */
+#header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url("/img/hero.jpg") no-repeat center center/cover;
+  height: 100vh;
+}
+
+#hero {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.hero-heading {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--bg-color);
+  letter-spacing: 2px;
+  max-width: 40rem;
+}
+
+.hero-heading span {
+  color: var(--primary-color);
+  display: block;
+  font-size: 4.1rem;
+  margin: 0.5rem 0;
+}
+
+.hero-btn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  color: var(--bg-color);
+  border: 2px solid var(--primary-color);
+  letter-spacing: 2px;
+  position: relative;
+  transition: var(--transition);
+  width: max-content;
+}
+
+.hero-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-btn:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--primary-color);
+  transition: all 0.35s;
+}
+
+.hero-btn:hover {
+  color: #fff;
+}
+
+.hero-btn:hover:after {
+  width: 100%;
 }
 
 /* * ----- Media Queries ----- */
@@ -118,31 +191,38 @@ a {
     padding: 0 4vw;
   }
 
+  #header{
+    height: 90vh;
+  }
+
+  /* Mobile Navbar start */
   .navlinks {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -100%;
     flex-direction: column;
     background-color: white;
     text-align: center;
     height: 0;
     overflow: hidden;
     transition: var(--transition);
+    color: var(--text-color);
   }
 
   .navlinks.mobile {
     height: max-content;
+    right: 0;
   }
 
-  .navlinks li a{
+  .navlinks li a {
     margin: 0.1rem 4rem;
   }
 
-  .navlinks li:first-child{
+  .navlinks li:first-child {
     margin-top: 2rem;
   }
 
-  .navlinks li:last-child{
+  .navlinks li:last-child {
     margin-bottom: 1.5rem;
   }
 
@@ -152,12 +232,36 @@ a {
 
   .navbar-button {
     display: block;
+    color: var(--bg-color);
   }
+  /* Mobile Navbar end */
 }
 
 @media screen and (max-width: 480px) {
+  html {
+    font-size: 90%;
+  }
+
   .container {
     padding: 0 2vw;
+  }
+
+  .navlinks.mobile {
+    width: 100%;
+  }
+
+  #header{
+    height: 70vh;
+  }
+
+  #hero {
+    align-items: start;
+    text-align: start;
+    gap: 2rem;
+  }
+
+  .hero-heading {
+    font-size: 3rem;
   }
 }
 
