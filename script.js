@@ -1,23 +1,16 @@
 const navbarElement = document.querySelector(".navbar");
 const navBar = document.querySelector(".navlinks");
-const navBarButton = document.querySelector(".navbar-button");
-const navBarButtonIcon = document.querySelectorAll(".navbar-button i.fa-solid");
+const navbarButton = document.querySelector(".navbar-button");
+const navbarButtonIcons = document.querySelectorAll(".navbar-button i.fa-solid");
 const scrollToTopButton = document.querySelector(".scroll-to-top");
 
-navBarButton.addEventListener("click", () => {
-
-  navBarButtonIcon.forEach(function (icon) {
-    icon.classList.toggle("hidden");
-  })
-
-  if (!navBar.classList.contains("mobile")) {
-    navBar.classList.add("mobile");
-  } else {
-    navBar.classList.remove("mobile");
-  }
+// Toggle mobile navigation
+navbarButton.addEventListener("click", () => {
+  navbarButtonIcons.forEach(icon => icon.classList.toggle("hidden"));
+  navBar.classList.toggle("mobile");
 });
 
-// Throttle function using chatgpt
+// Throttle function
 function throttle(func, limit) {
   let lastFunc;
   let lastRan;
@@ -29,7 +22,7 @@ function throttle(func, limit) {
       lastRan = Date.now();
     } else {
       clearTimeout(lastFunc);
-      lastFunc = setTimeout(function () {
+      lastFunc = setTimeout(() => {
         if ((Date.now() - lastRan) >= limit) {
           func.apply(context, args);
           lastRan = Date.now();
@@ -38,26 +31,29 @@ function throttle(func, limit) {
     }
   };
 }
+
+// Handle scroll events
 const handleScroll = () => {
-  window.scrollY > 150 ? navbarElement.classList.add("scrolled") : navbarElement.classList.remove("scrolled");
-  window.scrollY > 300 ? scrollToTopButton.style.opacity = "1" : scrollToTopButton.style.opacity = "0";
+  navbarElement.classList.toggle("scrolled", window.scrollY > 150);
+  scrollToTopButton.style.opacity = window.scrollY > 300 ? "1" : "0";
 };
+
+// Attach scroll event with throttling
 window.onscroll = throttle(handleScroll, 200);
 
-// scroll to top
-[...document.querySelectorAll(".logo"), document.querySelector(".home-link"), scrollToTopButton].forEach((logo) => {
-  logo.addEventListener('click', () => {
-    window.scrollTo(0, 0);
-  })
-})
+// Scroll to top functionality
+const scrollToTopElements = [...document.querySelectorAll(".logo"), document.querySelector(".home-link"), scrollToTopButton];
+scrollToTopElements.forEach(element => {
+  element.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
 
-// by chatgpt
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[data-scroll-to]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault(); // Prevent default anchor behavior
     const targetSection = document.getElementById(this.getAttribute('data-scroll-to'));
-    targetSection.scrollIntoView({
-      behavior: 'smooth'
-    });
+    targetSection.scrollIntoView({ behavior: 'smooth' });
   });
 });
