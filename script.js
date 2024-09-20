@@ -2,6 +2,7 @@ const navbarElement = document.querySelector(".navbar");
 const navBar = document.querySelector(".navlinks");
 const navBarButton = document.querySelector(".navbar-button");
 const navBarButtonIcon = document.querySelectorAll(".navbar-button i.fa-solid");
+const scrollToTopButton = document.querySelector(".scroll-to-top");
 
 navBarButton.addEventListener("click", () => {
 
@@ -20,7 +21,7 @@ navBarButton.addEventListener("click", () => {
 function throttle(func, limit) {
   let lastFunc;
   let lastRan;
-  return function() {
+  return function () {
     const context = this;
     const args = arguments;
     if (!lastRan) {
@@ -28,7 +29,7 @@ function throttle(func, limit) {
       lastRan = Date.now();
     } else {
       clearTimeout(lastFunc);
-      lastFunc = setTimeout(function() {
+      lastFunc = setTimeout(function () {
         if ((Date.now() - lastRan) >= limit) {
           func.apply(context, args);
           lastRan = Date.now();
@@ -38,11 +39,25 @@ function throttle(func, limit) {
   };
 }
 const handleScroll = () => {
-  console.log(window.scrollY);
-  if (window.scrollY > 150) {
-    navbarElement.classList.add("scrolled");
-  } else {
-    navbarElement.classList.remove("scrolled");
-  }  
+  window.scrollY > 150 ? navbarElement.classList.add("scrolled") : navbarElement.classList.remove("scrolled");
+  window.scrollY > 300 ? scrollToTopButton.style.opacity = "1" : scrollToTopButton.style.opacity = "0";
 };
-window.onscroll = throttle(handleScroll, 300);
+window.onscroll = throttle(handleScroll, 200);
+
+// scroll to top
+[...document.querySelectorAll(".logo"), document.querySelector(".home-link"), scrollToTopButton].forEach((logo) => {
+  logo.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+  })
+})
+
+// by chatgpt
+document.querySelectorAll('a[data-scroll-to]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    const targetSection = document.getElementById(this.getAttribute('data-scroll-to'));
+    targetSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});

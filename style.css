@@ -138,7 +138,7 @@ section {
 /* * ----- Main Styles ----- */
 
 /* * ----- Navbar ----- */
-.navbar {  
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -164,6 +164,7 @@ section {
   font-weight: 500;
   color: var(--bg-color);
   letter-spacing: 2px;
+  cursor: pointer;
 
   & span {
     color: var(--primary-color);
@@ -435,7 +436,6 @@ footer {
     transition: var(--transition);
     color: var(--bg-color);
     width: 50%;
-    
   }
 
   .navlinks.mobile {
@@ -527,4 +527,23 @@ footer {
 
 .hidden {
   display: none;
+}
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
 }
