@@ -18,12 +18,14 @@
   margin: 0;
   padding: 0 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "League Spartan", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+  position: relative;
   overflow-x: hidden;
 }
 
@@ -134,22 +136,33 @@ section {
 }
 
 /* * ----- Main Styles ----- */
-/* * ----- Header Section ----- */
-body {
-  position: relative;
-}
-#header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-    url("/img/hero.jpg") no-repeat center center/cover;
-  height: 100vh;
-}
+/* body.dark {
+  --bg-color: #1a202c;
+  --text-color: #f0f4f8;
+  --primary-color: #ff7f50;
+  --secondary-color: #1e90ff;
+} */
 
 /* * ----- Navbar ----- */
-.navbar {
+.navbar {  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 0;
+}
+
+.navbar.scrolled {
+  background-color: var(--text-color);
+  box-shadow: var(--box-shadow);
+}
+
+.navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  position: relative;
 }
 
 .logo {
@@ -182,9 +195,11 @@ body {
   display: none;
 }
 
-/* * ----- Hero ----- */
+/* * ----- Hero Section ----- */
 .hero {
-  height: 90%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url("/img/hero.jpg") no-repeat center center/cover;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -407,7 +422,7 @@ footer {
     font-size: 3.4rem;
   }
 
-  #header {
+  .hero {
     height: 90vh;
   }
 
@@ -417,29 +432,20 @@ footer {
     top: 100%;
     right: -100%;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--text-color);
     text-align: center;
-    height: 0;
+    justify-content: center;
+    gap: 2rem;
+    height: 60vh;
     overflow: hidden;
     transition: var(--transition);
-    color: var(--text-color);
+    color: var(--bg-color);
+    width: 50%;
+    
   }
 
   .navlinks.mobile {
-    height: max-content;
     right: 0;
-  }
-
-  .navlinks li a {
-    margin: 0.1rem 4rem;
-  }
-
-  .navlinks li:first-child {
-    margin-top: 2rem;
-  }
-
-  .navlinks li:last-child {
-    margin-bottom: 1.5rem;
   }
 
   .navbar-button {
@@ -514,7 +520,7 @@ footer {
     width: 100%;
   }
 
-  #header {
+  .hero {
     height: 70vh;
   }
 
