@@ -5,7 +5,7 @@
 *::before,
 *::after {
   margin: 0;
-  padding: 0;
+  padding: 0 0;
   box-sizing: border-box;
 }
 
@@ -22,6 +22,7 @@ img {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ul {
@@ -41,54 +42,125 @@ p {
   line-height: 1.5;
 }
 
-button {
-  cursor: pointer;
-}
-
 input,
 button,
 select,
 option,
-textarea {
+textarea,
+a {
   border: none;
   outline: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 /* * ----- Utility Classes ----- */
 
 .container {
-  max-width: 1200px;
-  padding: 12vw;
+  max-width: 1600px;
+  padding: 0 8vw;
+  margin: 0 auto;
 }
 
 /* * ----- Variables ----- */
 :root {
-  --bg-color: #f5f5f5;
-  --text-color: #333;
-  --primary-color: #ff6b6b;
-  --secondary-color: #794afa;
-  --secondary-dark-color: #4536a0;
-  --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease-in-out;
+  --bg-color: #f0f4f8;
+  --text-color: #1a202c;
+  --primary-color: #1e90ff;
+  --secondary-color: #ff7f50;
+  --secondary-dark-color: #c85030;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  --transition: all 0.25s ease-in-out;
 }
 
 /* * ----- Main Styles ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  & span {
+    color: var(--primary-color);
+  }
+}
+
+.navlinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navlinks li {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.navbar-button {
+  font-size: 1.5rem;
+  display: none;
+}
 
 /* * ----- Media Queries ----- */
 @media screen and (max-width: 1024px) {
   .container {
-    padding: 9vw;
+    padding: 0 6vw;
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 6vw;
+    padding: 0 4vw;
+  }
+
+  .navlinks {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .navlinks.mobile {
+    height: max-content;
+  }
+
+  .navlinks li a{
+    margin: 0.1rem 4rem;
+  }
+
+  .navlinks li:first-child{
+    margin-top: 2rem;
+  }
+
+  .navlinks li:last-child{
+    margin-bottom: 1.5rem;
+  }
+
+  .navlinks li:hover {
+    color: var(--primary-color);
+  }
+
+  .navbar-button {
+    display: block;
   }
 }
 
 @media screen and (max-width: 480px) {
   .container {
-    padding: 3vw;
+    padding: 0 2vw;
   }
+}
+
+.hidden {
+  display: none;
 }
