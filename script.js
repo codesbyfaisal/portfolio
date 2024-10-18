@@ -3,12 +3,22 @@ const navBar = document.querySelector(".navlinks");
 const navbarButton = document.querySelector(".navbar-button");
 const navbarButtonIcons = document.querySelectorAll(".navbar-button i.fa-solid");
 const scrollToTopButton = document.querySelector(".scroll-to-top");
+let navBarOpen = false
+let dark = false
 
 // Toggle mobile navigation
-navbarButton.addEventListener("click", () => {
+const navBarHandler = () => {
   navbarButtonIcons.forEach(icon => icon.classList.toggle("hidden"));
   navBar.classList.toggle("mobile");
-});
+  navBarOpen = !navBarOpen
+}
+navbarButton.addEventListener("click", navBarHandler);
+
+document.addEventListener('click', (e) => {
+  if (!navbarButton.contains(e.target) && !navBar.contains(e.target) && navbarButton && navBarOpen) {
+    navBarHandler()
+  }
+})
 
 // Throttle function
 function throttle(func, limit) {
@@ -38,16 +48,12 @@ const handleScroll = () => {
   scrollToTopButton.style.opacity = window.scrollY > 300 ? "1" : "0";
 };
 
+scrollToTopButton.addEventListener('click', () => {
+  window.scrollTo(0, 0)
+})
+
 // Attach scroll event with throttling
 window.onscroll = throttle(handleScroll, 200);
-
-// Scroll to top functionality
-const scrollToTopElements = [...document.querySelectorAll(".logo"), document.querySelector(".home-link"), scrollToTopButton];
-scrollToTopElements.forEach(element => {
-  element.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[data-scroll-to]').forEach(anchor => {
@@ -55,5 +61,19 @@ document.querySelectorAll('a[data-scroll-to]').forEach(anchor => {
     e.preventDefault(); // Prevent default anchor behavior
     const targetSection = document.getElementById(this.getAttribute('data-scroll-to'));
     targetSection.scrollIntoView({ behavior: 'smooth' });
+    navBarHandler()
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('dark') === 'true') {
+    document.body.classList.add('dark')
+    dark = !dark
+  }
+})
+
+document.querySelector('.theme-toggler').addEventListener('click', (e) => {
+  dark = !dark
+  document.body.classList.toggle('dark')
+  localStorage.setItem('dark', dark)
+})

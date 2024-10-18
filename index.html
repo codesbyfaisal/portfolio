@@ -1,39 +1,52 @@
 <!Doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="/img/favicon.png" rel="shortcut icon" type="image/x-icon">
-    <title>Codebyfaisal</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" referrerpolicy="no-referrer">
+    <link href="./src/icons/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <title>Muhammad Faisal | Web Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"
+        crossorigin="anonymous"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        referrerpolicy="no-referrer">
     <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="scroll-to-top">
         <i class="fa-solid fa-arrow-up"></i>
     </div>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <h1 class="logo"><span>C</span>ODEBY<span>F</span>AISAL</h1>
             <ul class="navlinks">
-                <li><a href="javascript:void(0);" class="home-link">HOME</a></li>
+                <li><a data-scroll-to="hero">HOME</a></li>
                 <li><a data-scroll-to="services">SERVICES</a></li>
                 <li><a data-scroll-to="projects">PROJECTS</a></li>
                 <li><a data-scroll-to="about">ABOUT</a></li>
                 <li><a data-scroll-to="contact">CONTACT</a></li>
             </ul>
-            <button class="navbar-button" type="button">
-                <i class="fa-solid fa-bars-staggered"></i>
-                <i class="fa-solid fa-xmark hidden"></i>
-            </button>
+            <div style="display: flex; gap: 1rem;">
+                <button class="navbar-button" type="button">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <i class="fa-solid fa-xmark hidden"></i>
+                </button>
+                <button class="theme-toggler">
+                    <img src="./src/icons/light.png" class="light-theme-icon">
+                    <img src="./src/icons/dark.png" class="dark-theme-icon">
+                </button>
+            </div>
         </div>
     </nav>
-    
-    <header class="hero">
-        <h1 class="section-heading"><span>Muhammad Faisal</span> Web Developer</h1>
+
+    <header class="hero" id="hero">
+        <h1 class="section-heading">
+            Muhammad Faisal<span class="typewriter">Front End Developer</span>
+        </h1>
         <a data-scroll-to="projects" class="primary-btn"><span>Portfolio</span></a>
     </header>
-    
+
     <main>
         <section id="services">
             <div class="container">
@@ -42,32 +55,38 @@
                     <div class="service">
                         <i class="fa-solid fa-laptop"></i>
                         <h3>Responsive Web Design</h3>
-                        <p>Creating websites that are visually appealing and function flawlessly on all devices, from desktops to smartphones, ensuring an optimal user experience.</p>
+                        <p>Creating websites that are visually appealing and function flawlessly on all devices, from
+                            desktops to smartphones, ensuring an optimal user experience.</p>
                     </div>
                     <div class="service">
                         <i class="fa-solid fa-code"></i>
                         <h3>Web Development</h3>
-                        <p>Developing modern, high-quality websites using the latest frontend technologies, ensuring clean code and efficient performance across all platforms.</p>
+                        <p>Developing modern, high-quality websites using the latest frontend technologies, ensuring
+                            clean code and efficient performance across all platforms.</p>
                     </div>
                     <div class="service">
                         <i class="fa-solid fa-database"></i>
                         <h3>Single Page Applications</h3>
-                        <p>Building fast and interactive Single Page Applications (SPA) with dynamic content updates, delivering a smooth user experience without page reloads.</p>
+                        <p>Building fast and interactive Single Page Applications (SPA) with dynamic content updates,
+                            delivering a smooth user experience without page reloads.</p>
                     </div>
                     <div class="service">
                         <i class="fa-solid fa-tachometer-alt"></i>
                         <h3>Website Optimization</h3>
-                        <p>Improving website performance through code optimization, image compression, and other techniques to enhance load times and user experience.</p>
+                        <p>Improving website performance through code optimization, image compression, and other
+                            techniques to enhance load times and user experience.</p>
                     </div>
                     <div class="service">
                         <i class="fa-solid fa-file-code"></i>
                         <h3>PSD/Figma to HTML</h3>
-                        <p>Converting design files into responsive and pixel-perfect HTML code, ensuring the final product matches the original design flawlessly.</p>
+                        <p>Converting design files into responsive and pixel-perfect HTML code, ensuring the final
+                            product matches the original design flawlessly.</p>
                     </div>
                     <div class="service">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <h3>E-commerce Development</h3>
-                        <p>Building responsive e-commerce websites with integrated shopping carts, payment gateways, and dynamic product pages to enhance the shopping experience.</p>
+                        <p>Building responsive e-commerce websites with integrated shopping carts, payment gateways, and
+                            dynamic product pages to enhance the shopping experience.</p>
                     </div>
                 </div>
             </div>
@@ -79,30 +98,63 @@
                 <div class="projects-container">
                     <div class="project">
                         <div class="project-info">
-                            <h1>E-commerce Website</h1>
-                            <p>Fully responsive, multi-page e-commerce website with a seamless user experience. The project included key features like an intuitive product catalog, a functional add-to-cart system, and dynamic product pages. Built with modern frontend technologies, this project focuses on clean design, smooth navigation, and fast load times across all devices, ensuring an engaging shopping experience for users.</p>
+                            <h1>Primebazar🛒✨(Full Stack)</h1>
+                            <p>Prime Bazaar is a full-stack e-commerce website designed to provide a seamless shopping
+                                experience for customers while offering administrative capabilities to manage products,
+                                orders. The application is built using advanced technologies, ensuring both performance
+                                and scalability.</p>
                             <div class="project-links">
-                                <a href="https://codebyfaisal.github.io/gadgethub/" target="_blank" class="primary-btn"><span>View Live</span></a>
-                                <a href="https://github.com/codebyfaisal/gadgethub" target="_blank" class="secondary-btn">Source Code</a>
+                                <a href="https://primebazar.vercel.app/" target="_blank" class="primary-btn"><span>View
+                                        Live</span></a>
+                                <a href="https://github.com/codebyfaisal/primebazar" target="_blank"
+                                    class="secondary-btn">Source Code</a>
                             </div>
                         </div>
                         <div class="project-img">
-                            <img alt="E-commerce Project" src="img/project-1.png">
+                            <img alt="E-commerce Project" src="./src/img/project-3.avif">
                         </div>
                     </div>
+
                     <div class="project">
                         <div class="project-info">
                             <h1>Restaurant Website</h1>
-                            <p>A sleek, responsive landing page for a restaurant, designed to showcase its offerings and ambiance. The website features an easy-to-use reservation form, allowing customers to book tables directly. The design emphasizes simplicity and elegance, ensuring the restaurant’s brand and menu are the focal points while maintaining optimal performance on all devices.</p>
+                            <p>A sleek, responsive landing page for a restaurant, designed to showcase its offerings and
+                                ambiance. The website features an easy-to-use reservation form, allowing customers to
+                                book tables directly. The design emphasizes simplicity and elegance, ensuring the
+                                restaurant’s brand and menu are the focal points while maintaining optimal performance
+                                on all devices.</p>
                             <div class="project-links">
-                                <a href="https://codebyfaisal.github.io/sunrisecafe/" target="_blank" class="primary-btn"><span>View Live</span></a>
-                                <a href="https://github.com/codebyfaisal/sunrisecafe" target="_blank" class="secondary-btn">Source Code</a>
+                                <a href="https://codebyfaisal.github.io/sunrisecafe/" target="_blank"
+                                    class="primary-btn"><span>View Live</span></a>
+                                <a href="https://github.com/codebyfaisal/sunrisecafe" target="_blank"
+                                    class="secondary-btn">Source Code</a>
                             </div>
                         </div>
                         <div class="project-img">
-                            <img alt="Restaurant Project" src="img/project-2.png">
+                            <img alt="Restaurant Project" src="./src/img/project-2.avif">
                         </div>
                     </div>
+
+                    <div class="project">
+                        <div class="project-info">
+                            <h1>E-commerce Website</h1>
+                            <p>Fully responsive, multi-page e-commerce website with a seamless user experience. The
+                                project included key features like an intuitive product catalog, a functional
+                                add-to-cart system, and dynamic product pages. Built with modern frontend technologies,
+                                this project focuses on clean design, smooth navigation, and fast load times across all
+                                devices, ensuring an engaging shopping experience for users.</p>
+                            <div class="project-links">
+                                <a href="https://codebyfaisal.github.io/gadgethub/" target="_blank"
+                                    class="primary-btn"><span>View Live</span></a>
+                                <a href="https://github.com/codebyfaisal/gadgethub" target="_blank"
+                                    class="secondary-btn">Source Code</a>
+                            </div>
+                        </div>
+                        <div class="project-img">
+                            <img alt="E-commerce Project" src="./src/img/project-1.avif">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -115,8 +167,11 @@
                 </div>
                 <div class="about-info">
                     <h1 class="section-heading inner">ABOUT <span>ME</span></h1>
-                    <p>Specialize in building sleek, responsive websites using modern web technologies like HTML, CSS, JavaScript, and React. I build fast, user-friendly websites that work seamlessly on all devices. Whether you are looking for a new design or want to enhance an existing site, I will provide a solution tailored to your needs. Let's work together to bring your vision to life!</p>
-                    <a href="./MuhammadFaisal.pdf" class="primary-btn"><span>Download CV</span></a>
+                    <p>Specialize in building sleek, responsive websites using modern web technologies like HTML, CSS,
+                        JavaScript, and React. I build fast, user-friendly websites that work seamlessly on all devices.
+                        Whether you are looking for a new design or want to enhance an existing site, I will provide a
+                        solution tailored to your needs. Let's work together to bring your vision to life!</p>
+                    <a href="./src/MuhammadFaisal.pdf" target="_blank" class="primary-btn"><span>Download CV</span></a>
                 </div>
             </div>
         </section>
@@ -144,15 +199,19 @@
             </div>
         </section>
     </main>
-    
+
     <footer>
         <div class="container">
             <h1 class="logo"><span>C</span>ODEBY<span>F</span>AISAL</h1>
             <ul class="social-links">
-                <li><a href="https://www.linkedin.com/in/codebyfaisal" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="https://github.com/codebyfaisal" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-                <li><a href="https://twitter.com/faisalinsights" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="https://www.facebook.com/codebyfaisal" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/codebyfaisal" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/codebyfaisal" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li><a href="https://twitter.com/faisalinsights" target="_blank"><i
+                            class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/codebyfaisal" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a></li>
             </ul>
             <div class="copyright">
                 <p>Crafted with <i class="fa-solid fa-heart" style="color:red"></i> by Muhammad Faisal</p>
@@ -160,7 +219,8 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
